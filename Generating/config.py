@@ -1,0 +1,1019 @@
+class DtypesSchema:
+    # Column 명 : [사용여부, dtype]
+    CUSTOMER_SCHEMA = {
+        "ID": [False, "object"],
+        "남녀구분코드": [True, "object"],
+        "연령": [True, "object"],
+        "Segment": [True, "object"],
+        "회원여부_이용가능": [True, "bool"],
+        "회원여부_이용가능_CA": [True, "bool"],
+        "회원여부_이용가능_카드론": [True, "bool"],
+        "소지여부_신용": [True, "bool"],
+        "소지카드수_유효_신용": [True, "int64"],
+        "소지카드수_이용가능_신용": [True, "int64"],
+        "입회일자_신용": [False, "YMD"],
+        "입회경과개월수_신용": [True, "int64"],
+        "회원여부_연체": [True, "bool"],
+        "이용거절여부_카드론": [True, "bool"],
+        "동의여부_한도증액안내": [True, "bool"],
+        "수신거부여부_TM": [True, "bool"],
+        "수신거부여부_DM": [True, "bool"],
+        "수신거부여부_메일": [True, "bool"],
+        "수신거부여부_SMS": [True, "bool"],
+        "가입통신회사코드": [True, "object"],  # missing을 category로 추가
+        "탈회횟수_누적": [True, "int64"],
+        "최종탈회후경과월": [True, "int64"],
+        "탈회횟수_발급6개월이내": [True, "int64"],
+        "탈회횟수_발급1년이내": [True, "int64"],
+        "거주시도명": [True, "object"],  # missing을 category로 추가
+        "직장시도명": [True, "object"],  # missing을 category로 추가
+        "마케팅동의여부": [True, "bool"],
+        "유효카드수_신용체크": [True, "int64"],
+        "유효카드수_신용": [True, "int64"],
+        "유효카드수_신용_가족": [True, "int64"],
+        "유효카드수_체크": [True, "int64"],
+        "유효카드수_체크_가족": [True, "int64"],
+        "이용가능카드수_신용체크": [True, "int64"],
+        "이용가능카드수_신용": [True, "int64"],
+        "이용가능카드수_신용_가족": [True, "int64"],
+        "이용가능카드수_체크": [True, "int64"],
+        "이용가능카드수_체크_가족": [True, "int64"],
+        "이용카드수_신용체크": [True, "int64"],
+        "이용카드수_신용": [True, "int64"],
+        "이용카드수_신용_가족": [True, "int64"],
+        "이용카드수_체크": [True, "int64"],
+        "이용금액_R3M_신용체크": [True, "int64"],
+        "이용금액_R3M_신용": [True, "int64"],
+        "이용금액_R3M_신용_가족": [True, "int64"],
+        "이용금액_R3M_체크": [True, "int64"],
+        "_1순위카드이용금액": [True, "int64"],
+        "_1순위카드이용건수": [True, "int64"],
+        "_1순위신용체크구분": [True, "object"],  # missing을 category로 추가
+        "_2순위카드이용금액": [True, "int64"],
+        "_2순위카드이용건수": [True, "int64"],
+        "_2순위신용체크구분": [True, "object"],  # missing을 category로 추가
+        "최종유효년월_신용_이용가능": [False, "YM"],
+        "최종유효년월_신용_이용": [False, "YM"],
+        "최종카드발급일자": [False, "YMD"],
+        "보유여부_해외겸용_본인": [True, "bool"],
+        "이용가능여부_해외겸용_본인": [True, "bool"],
+        "이용여부_3M_해외겸용_본인": [True, "bool"],
+        "보유여부_해외겸용_신용_본인": [True, "bool"],
+        "이용가능여부_해외겸용_신용_본인": [True, "bool"],
+        "이용여부_3M_해외겸용_신용_본인": [True, "bool"],
+        "연회비발생카드수_B0M": [True, "object"],
+        "기본연회비_B0M": [True, "int64"],
+        "제휴연회비_B0M": [True, "int64"],
+        "청구금액_기본연회비_B0M": [True, "int64"],
+        "청구금액_제휴연회비_B0M": [True, "int64"],
+        "카드신청건수": [True, "int64"],
+        "Life_Stage": [True, "object"],
+        "최종카드발급경과월": [True, "int64"],
+    }
+
+    BILLING_SCHEMA = {
+        "ID": [False, "object"],
+        "대표결제일": [True, "int64"],
+        "대표청구지고객주소구분코드": [True, "object"],
+        "대표청구서수령지구분코드": [True, "object"],
+        "청구서수령방법": [True, "object"],
+        "청구서발송여부_B0": [True, "bool"],
+        "청구서발송여부_R3M": [True, "bool"],
+        "청구서발송여부_R6M": [True, "bool"],
+        "청구금액_B0": [True, "int64"],
+        "청구금액_R3M": [True, "int64"],
+        "청구금액_R6M": [True, "int64"],
+        "포인트_마일리지_건별_B0M": [True, "int64"],
+        "포인트_마일리지_건별_R3M": [True, "int64"],
+        "포인트_포인트_건별_B0M": [True, "int64"],
+        "포인트_포인트_건별_R3M": [True, "int64"],
+        "포인트_마일리지_월적립_B0M": [True, "int64"],
+        "포인트_마일리지_월적립_R3M": [True, "int64"],
+        "포인트_포인트_월적립_B0M": [True, "int64"],
+        "포인트_포인트_월적립_R3M": [True, "int64"],
+        "포인트_적립포인트_R12M": [True, "int64"],
+        "포인트_적립포인트_R3M": [True, "int64"],
+        "포인트_이용포인트_R12M": [True, "int64"],
+        "포인트_이용포인트_R3M": [True, "int64"],
+        "포인트_잔여포인트_B0M": [True, "int64"],
+        "마일_적립포인트_R12M": [True, "int64"],
+        "마일_적립포인트_R3M": [True, "int64"],
+        "마일_이용포인트_R12M": [True, "int64"],
+        "마일_이용포인트_R3M": [True, "int64"],
+        "마일_잔여포인트_B0M": [True, "int64"],
+        "할인건수_R3M": [True, "object"],
+        "할인금액_R3M": [True, "int64"],
+        "할인건수_B0M": [True, "object"],
+        "할인금액_B0M": [True, "int64"],
+        "할인금액_청구서_R3M": [True, "int64"],
+        "할인금액_청구서_B0M": [True, "int64"],
+        "상환개월수_결제일_R6M": [True, "int64"],
+        "상환개월수_결제일_R3M": [True, "int64"],
+        "선결제건수_R6M": [True, "int64"],
+        "선결제건수_R3M": [True, "int64"],
+        "연체건수_R6M": [True, "int64"],
+        "연체건수_R3M": [True, "int64"],
+        "혜택수혜금액_R3M": [True, "int64"],
+        "포인트_마일리지_환산_B0M": [True, "int64"],
+        "혜택수혜금액": [True, "int64"],
+        "Segment": [True, "object"],
+    }
+
+    CREDIT_SCHEMA = {
+        "ID": [False, "object"],
+        "최초한도금액": [True, "int64"],
+        "카드이용한도금액": [True, "int64"],
+        "CA한도금액": [True, "int64"],
+        "일시상환론한도금액": [True, "int64"],
+        "월상환론한도금액": [True, "int64"],
+        "CA이자율_할인전": [True, "float64"],
+        "CL이자율_할인전": [True, "float64"],
+        "RV일시불이자율_할인전": [True, "float64"],
+        "RV현금서비스이자율_할인전": [True, "float64"],
+        "RV신청일자": [True, "YMD"],  # 날짜지만 결측 많고 float 형태
+        "RV약정청구율": [True, "float64"],
+        "RV최소결제비율": [True, "float64"],
+        "자발한도감액횟수_R12M": [True, "object"],  # "0회", "1회" 등 string
+        "자발한도감액금액_R12M": [True, "int64"],
+        "자발한도감액후경과월": [True, "int64"],
+        "강제한도감액횟수_R12M": [True, "int64"],
+        "강제한도감액금액_R12M": [True, "int64"],
+        "강제한도감액후경과월": [True, "int64"],
+        "한도증액횟수_R12M": [True, "object"],  # "0회", "1회이상"
+        "한도증액금액_R12M": [True, "int64"],
+        "한도증액후경과월": [True, "int64"],
+        "상향가능한도금액": [True, "int64"],
+        "상향가능CA한도금액": [True, "int64"],
+        "카드론동의여부": [True, "object"],  # "Y", "N"
+        "월상환론상향가능한도금액": [True, "int64"],
+        "RV전환가능여부": [True, "object"],  # "Z", "N", 결측 존재
+        "일시불ONLY전환가능여부": [True, "bool"],
+        "카드이용한도금액_B1M": [True, "int64"],
+        "카드이용한도금액_B2M": [True, "int64"],
+        "연체감액여부_R3M": [True, "bool"],
+        "시장단기연체여부_R6M": [True, "bool"],
+        "rv최초시작후경과일": [True, "int64"],
+        "Segment": [True, "object"],
+    }
+
+    MARKETING_SCHEMA = {
+        "ID": [True, "object"],
+        "컨택건수_카드론_TM_B0M": [True, "int64"],
+        "컨택건수_리볼빙_TM_B0M": [True, "int64"],
+        "컨택건수_이용유도_TM_B0M": [True, "int64"],
+        "컨택건수_신용발급_TM_B0M": [True, "int64"],
+        "컨택건수_보험_TM_B0M": [True, "int64"],
+        "컨택건수_카드론_LMS_B0M": [True, "int64"],
+        "컨택건수_CA_LMS_B0M": [True, "int64"],
+        "컨택건수_리볼빙_LMS_B0M": [True, "int64"],
+        "컨택건수_이용유도_LMS_B0M": [True, "int64"],
+        "컨택건수_카드론_EM_B0M": [True, "int64"],
+        "컨택건수_이용유도_EM_B0M": [True, "int64"],
+        "컨택건수_CA_청구서_B0M": [True, "int64"],
+        "컨택건수_이용유도_청구서_B0M": [True, "int64"],
+        "컨택건수_이용유도_인터넷_B0M": [True, "int64"],
+        "컨택건수_이용유도_당사앱_B0M": [True, "int64"],
+        "컨택건수_카드론_TM_R6M": [True, "int64"],
+        "컨택건수_리볼빙_TM_R6M": [True, "int64"],
+        "컨택건수_이용유도_TM_R6M": [True, "int64"],
+        "컨택건수_신용발급_TM_R6M": [True, "int64"],
+        "컨택건수_부대서비스_TM_R6M": [True, "int64"],
+        "컨택건수_보험_TM_R6M": [True, "int64"],
+        "컨택건수_카드론_LMS_R6M": [True, "int64"],
+        "컨택건수_CA_LMS_R6M": [True, "int64"],
+        "컨택건수_리볼빙_LMS_R6M": [True, "int64"],
+        "컨택건수_이용유도_LMS_R6M": [True, "int64"],
+        "컨택건수_카드론_EM_R6M": [True, "int64"],
+        "컨택건수_이용유도_EM_R6M": [True, "int64"],
+        "컨택건수_카드론_청구서_R6M": [True, "int64"],
+        "컨택건수_CA_청구서_R6M": [True, "int64"],
+        "컨택건수_이용유도_청구서_R6M": [True, "int64"],
+        "컨택건수_이용유도_인터넷_R6M": [True, "int64"],
+        "컨택건수_이용유도_당사앱_R6M": [True, "int64"],
+        "컨택건수_채권_B0M": [True, "int64"],
+        "컨택건수_채권_R6M": [True, "int64"],
+        "캠페인접촉건수_R12M": [
+            True,
+            "object",
+        ],  # "1회 이상", "5회 이상" 등 순서형 문자열
+        "캠페인접촉일수_R12M": [
+            True,
+            "object",
+        ],  # "1일 이상", "5일 이상" 등 순서형 문자열
+        "Segment": [True, "object"],
+    }
+
+    CHANNEL_SCHEMA = {
+        "ID": [True, "object"],
+        "인입횟수_ARS_R6M": [True, "object"],
+        "이용메뉴건수_ARS_R6M": [True, "object"],
+        "인입일수_ARS_R6M": [True, "int64"],
+        "인입월수_ARS_R6M": [True, "int64"],
+        "인입후경과월_ARS": [True, "int64"],
+        "인입횟수_ARS_B0M": [True, "int64"],
+        "이용메뉴건수_ARS_B0M": [True, "int64"],
+        "인입일수_ARS_B0M": [True, "int64"],
+        "방문횟수_PC_R6M": [True, "object"],
+        "방문일수_PC_R6M": [True, "object"],
+        "방문월수_PC_R6M": [True, "int64"],
+        "방문후경과월_PC_R6M": [True, "int64"],
+        "방문횟수_앱_R6M": [True, "object"],
+        "방문일수_앱_R6M": [True, "int64"],
+        "방문월수_앱_R6M": [True, "int64"],
+        "방문후경과월_앱_R6M": [True, "int64"],
+        "방문횟수_모바일웹_R6M": [True, "int64"],
+        "방문일수_모바일웹_R6M": [True, "int64"],
+        "방문월수_모바일웹_R6M": [True, "int64"],
+        "방문후경과월_모바일웹_R6M": [True, "int64"],
+        "방문횟수_PC_B0M": [True, "int64"],
+        "방문일수_PC_B0M": [True, "int64"],
+        "방문횟수_앱_B0M": [True, "int64"],
+        "방문일수_앱_B0M": [True, "int64"],
+        "방문횟수_모바일웹_B0M": [True, "int64"],
+        "방문일수_모바일웹_B0M": [True, "int64"],
+        "인입횟수_IB_R6M": [True, "int64"],
+        "인입일수_IB_R6M": [True, "int64"],
+        "인입월수_IB_R6M": [True, "int64"],
+        "이용메뉴건수_IB_R6M": [True, "int64"],
+        "인입후경과월_IB_R6M": [True, "int64"],
+        "인입횟수_IB_B0M": [True, "int64"],
+        "인입일수_IB_B0M": [True, "int64"],
+        "이용메뉴건수_IB_B0M": [True, "int64"],
+        "상담건수_B0M": [True, "int64"],
+        "IB문의건수_선결제_B0M": [True, "int64"],
+        "IB문의건수_CL_RV_B0M": [True, "int64"],
+        "상담건수_R6M": [True, "int64"],
+        "IB문의건수_사용승인내역_R6M": [True, "int64"],
+        "IB문의건수_선결제_R6M": [True, "int64"],
+        "IB문의건수_카드발급_R6M": [True, "int64"],
+        "IB문의건수_CL_RV_R6M": [True, "int64"],
+        "IB문의건수_CS_R6M": [True, "int64"],
+        "불만제기후경과월_R12M": [True, "int64"],
+        "당사멤버쉽_방문횟수_B0M": [True, "int64"],
+        "당사멤버쉽_방문횟수_R6M": [True, "int64"],
+        "당사멤버쉽_방문월수_R6M": [True, "int64"],
+        "OS구분코드": [True, "object"],  # missing을 category로 추가
+        "홈페이지_금융건수_R6M": [True, "int64"],
+        "홈페이지_선결제건수_R6M": [True, "int64"],
+        "홈페이지_금융건수_R3M": [True, "int64"],
+        "홈페이지_선결제건수_R3M": [True, "int64"],
+        "Segment": [True, "object"],
+    }
+
+    BALANCE_SCHEMA = {
+        "ID": [True, "object"],
+        "잔액_일시불_B0M": [True, "int64"],
+        "잔액_할부_B0M": [True, "int64"],
+        "잔액_현금서비스_B0M": [True, "int64"],
+        "잔액_리볼빙일시불이월_B0M": [True, "int64"],
+        "잔액_리볼빙CA이월_B0M": [True, "int64"],
+        "잔액_카드론_B0M": [True, "int64"],
+        "월중평잔_일시불_B0M": [True, "int64"],
+        "월중평잔_할부_B0M": [True, "int64"],
+        "월중평잔_CA_B0M": [True, "int64"],
+        "연체일자_B0M": [True, "YMD"],  # missing 너무 많아서 제거
+        "연체잔액_B0M": [True, "int64"],
+        "연체잔액_일시불_B0M": [True, "int64"],
+        "연체잔액_할부_B0M": [True, "int64"],
+        "연체잔액_현금서비스_B0M": [True, "int64"],
+        "잔액_현금서비스_B1M": [True, "int64"],
+        "잔액_현금서비스_B2M": [True, "int64"],
+        "잔액_카드론_B1M": [True, "int64"],
+        "잔액_카드론_B2M": [True, "int64"],
+        "잔액_카드론_B3M": [True, "int64"],
+        "잔액_카드론_B4M": [True, "int64"],
+        "잔액_카드론_B5M": [True, "int64"],
+        "잔액_할부_B1M": [True, "int64"],
+        "잔액_할부_B2M": [True, "int64"],
+        "잔액_일시불_B1M": [True, "int64"],
+        "잔액_일시불_B2M": [True, "int64"],
+        "연체일수_B1M": [
+            True,
+            "int64",
+        ],  # (아마도)연체 없었으면 -999999로 표시 -> encoding 필요
+        "연체일수_B2M": [
+            True,
+            "int64",
+        ],  # (아마도)연체 없었으면 -999999로 표시 -> encoding 필요
+        "연체원금_B1M": [True, "int64"],
+        "연체원금_B2M": [True, "int64"],
+        "연체일수_최근": [
+            True,
+            "int64",
+        ],  # (아마도)연체 없었으면 -999999로 표시 -> encoding 필요
+        "연체원금_최근": [
+            True,
+            "int64",
+        ],  # (아마도)연체 없었으면 -999999로 표시 -> encoding 필요
+        "최종연체회차": [
+            True,
+            "int64",
+        ],  # (아마도)연체 없었으면 -999999로 표시 -> encoding 필요
+        "RV_평균잔액_R12M": [True, "int64"],
+        "RV_최대잔액_R12M": [True, "int64"],
+        "RV_평균잔액_R6M": [True, "int64"],
+        "RV_최대잔액_R6M": [True, "int64"],
+        "RV_평균잔액_R3M": [True, "int64"],
+        "RV_최대잔액_R3M": [True, "int64"],
+        "잔액_할부_유이자_B0M": [True, "int64"],
+        "잔액_할부_무이자_B0M": [True, "int64"],
+        "잔액_할부_해외_B0M": [True, "int64"],
+        "연체잔액_CA_B0M": [True, "int64"],
+        "월중평잔": [True, "int64"],
+        "월중평잔_일시불": [True, "int64"],
+        "월중평잔_RV일시불": [True, "int64"],
+        "월중평잔_할부": [True, "int64"],
+        "월중평잔_CA": [True, "int64"],
+        "월중평잔_카드론": [True, "int64"],
+        "평잔_3M": [True, "int64"],
+        "평잔_일시불_3M": [True, "int64"],
+        "평잔_일시불_해외_3M": [True, "int64"],
+        "평잔_RV일시불_3M": [True, "int64"],
+        "평잔_RV일시불_해외_3M": [True, "int64"],
+        "평잔_할부_3M": [True, "int64"],
+        "평잔_할부_해외_3M": [True, "int64"],
+        "평잔_CA_3M": [True, "int64"],
+        "평잔_CA_해외_3M": [True, "int64"],
+        "평잔_카드론_3M": [True, "int64"],
+        "평잔_6M": [True, "int64"],
+        "평잔_일시불_6M": [True, "int64"],
+        "평잔_일시불_해외_6M": [True, "int64"],
+        "평잔_RV일시불_6M": [True, "int64"],
+        "평잔_RV일시불_해외_6M": [True, "int64"],
+        "평잔_할부_6M": [True, "int64"],
+        "평잔_할부_해외_6M": [True, "int64"],
+        "평잔_CA_6M": [True, "int64"],
+        "평잔_CA_해외_6M": [True, "int64"],
+        "평잔_카드론_6M": [True, "int64"],
+        "Segment": [True, "object"],
+    }
+
+    PERFORMANCE_SCHEMA = {
+        "ID": [True, "object"],
+        "증감율_이용건수_신용_전월": [True, "float64"],
+        "증감율_이용건수_신판_전월": [True, "float64"],
+        "증감율_이용건수_일시불_전월": [True, "float64"],
+        "증감율_이용건수_할부_전월": [True, "float64"],
+        "증감율_이용건수_CA_전월": [True, "float64"],  # highly imbalanced : 99.5%
+        "증감율_이용건수_체크_전월": [True, "float64"],
+        "증감율_이용건수_카드론_전월": [True, "float64"],  # highly imbalanced : 99.9%
+        "증감율_이용금액_신용_전월": [True, "float64"],
+        "증감율_이용금액_신판_전월": [True, "float64"],
+        "증감율_이용금액_일시불_전월": [True, "float64"],
+        "증감율_이용금액_할부_전월": [True, "float64"],
+        "증감율_이용금액_CA_전월": [True, "float64"],
+        "증감율_이용금액_체크_전월": [True, "float64"],
+        "증감율_이용금액_카드론_전월": [True, "float64"],  # highly imbalanced : 99.9%
+        "증감율_이용건수_신용_분기": [True, "float64"],
+        "증감율_이용건수_신판_분기": [True, "float64"],
+        "증감율_이용건수_일시불_분기": [True, "float64"],
+        "증감율_이용건수_할부_분기": [True, "float64"],
+        "증감율_이용건수_CA_분기": [True, "float64"],
+        "증감율_이용건수_체크_분기": [True, "float64"],
+        "증감율_이용건수_카드론_분기": [True, "float64"],  # highly imbalanced : 98.5%
+        "증감율_이용금액_신용_분기": [True, "float64"],
+        "증감율_이용금액_신판_분기": [True, "float64"],
+        "증감율_이용금액_일시불_분기": [True, "float64"],
+        "증감율_이용금액_할부_분기": [True, "float64"],
+        "증감율_이용금액_CA_분기": [True, "float64"],
+        "증감율_이용금액_체크_분기": [True, "float64"],
+        "증감율_이용금액_카드론_분기": [True, "float64"],  # highly imbalanced : 98.5%
+        "잔액_신판평균한도소진율_r6m": [True, "float64"],
+        "잔액_신판최대한도소진율_r6m": [True, "float64"],
+        "잔액_신판평균한도소진율_r3m": [True, "float64"],
+        "잔액_신판최대한도소진율_r3m": [True, "float64"],
+        "잔액_신판ca평균한도소진율_r6m": [True, "float64"],
+        "잔액_신판ca최대한도소진율_r6m": [True, "float64"],
+        "잔액_신판ca평균한도소진율_r3m": [True, "float64"],
+        "잔액_신판ca최대한도소진율_r3m": [True, "float64"],
+        "변동률_일시불평잔": [True, "float64"],
+        "변동률_RV일시불평잔": [True, "float64"],
+        "변동률_할부평잔": [True, "float64"],
+        "변동률_CA평잔": [True, "float64"],
+        "변동률_RVCA평잔": [True, "float64"],
+        "변동률_카드론평잔": [True, "float64"],
+        "변동률_잔액_B1M": [True, "float64"],
+        "변동률_잔액_일시불_B1M": [True, "float64"],
+        "변동률_잔액_CA_B1M": [True, "float64"],
+        "혜택수혜율_R3M": [True, "float64"],  # missing 21.5%
+        "혜택수혜율_B0M": [True, "float64"],  # missing 23.6%
+        "Segment": [True, "object"],
+    }
+
+    SALES_SCHEMA = {
+        "ID": [True, "object"],
+        "최종이용일자_기본": [True, "YMD"],  # 10101-> missing 처리
+        "최종이용일자_신판": [True, "YMD"],  #  10101 -> missing 처리
+        "최종이용일자_CA": [True, "YMD"],  #  10101 -> missing 처리
+        "최종이용일자_카드론": [True, "YMD"],  #  10101 -> missing 처리
+        "최종이용일자_체크": [True, "YMD"],  #  10101 -> missing 처리
+        "최종이용일자_일시불": [True, "YMD"],  #  10101 -> missing 처리
+        "최종이용일자_할부": [True, "YMD"],  #  10101 -> missing 처리
+        "이용건수_신용_B0M": [True, "int64"],
+        "이용건수_신판_B0M": [True, "int64"],
+        "이용건수_일시불_B0M": [True, "int64"],
+        "이용건수_할부_B0M": [True, "int64"],
+        "이용건수_할부_유이자_B0M": [True, "int64"],
+        "이용건수_할부_무이자_B0M": [True, "int64"],
+        "이용건수_CA_B0M": [True, "int64"],
+        "이용건수_체크_B0M": [True, "int64"],
+        "이용건수_카드론_B0M": [True, "int64"],  # highly imbalanced : 99.9%
+        "이용금액_일시불_B0M": [True, "int64"],
+        "이용금액_할부_B0M": [True, "int64"],
+        "이용금액_할부_유이자_B0M": [True, "int64"],
+        "이용금액_할부_무이자_B0M": [True, "int64"],
+        "이용금액_CA_B0M": [True, "int64"],
+        "이용금액_체크_B0M": [True, "int64"],
+        "이용금액_카드론_B0M": [True, "int64"],  # highly imbalanced : 99.9%
+        "이용후경과월_신용": [True, "int64"],
+        "이용후경과월_신판": [True, "int64"],
+        "이용후경과월_일시불": [True, "int64"],
+        "이용후경과월_할부": [True, "int64"],
+        "이용후경과월_할부_유이자": [True, "int64"],
+        "이용후경과월_할부_무이자": [True, "int64"],
+        "이용후경과월_부분무이자": [True, "int"],
+        "이용후경과월_CA": [True, "int64"],  # highly imbalanced : 98.2%
+        "이용후경과월_체크": [True, "int64"],
+        "이용후경과월_카드론": [True, "int64"],
+        "이용건수_신용_R12M": [True, "int64"],
+        "이용건수_신판_R12M": [True, "int64"],
+        "이용건수_일시불_R12M": [True, "int64"],
+        "이용건수_할부_R12M": [True, "int64"],
+        "이용건수_할부_유이자_R12M": [True, "int64"],
+        "이용건수_할부_무이자_R12M": [True, "int64"],
+        "이용건수_부분무이자_R12M": [True, "int64"],  # highly imbalanced : 99.9%
+        "이용건수_CA_R12M": [True, "int64"],
+        "이용건수_체크_R12M": [True, "int64"],
+        "이용건수_카드론_R12M": [True, "int64"],
+        "이용금액_일시불_R12M": [True, "int64"],
+        "이용금액_할부_R12M": [True, "int64"],
+        "이용금액_할부_유이자_R12M": [True, "int64"],
+        "이용금액_할부_무이자_R12M": [True, "int64"],
+        "이용금액_부분무이자_R12M": [True, "int64"],
+        #######################################
+        "이용금액_CA_R12M": [True, "int64"],
+        "이용금액_체크_R12M": [True, "int64"],
+        "이용금액_카드론_R12M": [True, "int64"],
+        "최대이용금액_일시불_R12M": [True, "int64"],
+        "최대이용금액_할부_R12M": [True, "int64"],
+        "최대이용금액_할부_유이자_R12M": [True, "int64"],
+        "최대이용금액_할부_무이자_R12M": [True, "int64"],
+        "최대이용금액_부분무이자_R12M": [True, "int64"],
+        "최대이용금액_CA_R12M": [True, "int64"],
+        "최대이용금액_체크_R12M": [True, "int64"],
+        "최대이용금액_카드론_R12M": [True, "int64"],
+        "이용개월수_신용_R12M": [True, "int64"],
+        "이용개월수_신판_R12M": [True, "int64"],
+        "이용개월수_일시불_R12M": [True, "int64"],
+        "이용개월수_할부_R12M": [True, "int64"],
+        "이용개월수_할부_유이자_R12M": [True, "int64"],
+        "이용개월수_할부_무이자_R12M": [True, "int64"],
+        "이용개월수_부분무이자_R12M": [True, "int64"],
+        "이용개월수_CA_R12M": [True, "int64"],
+        "이용개월수_체크_R12M": [True, "int64"],
+        "이용개월수_카드론_R12M": [True, "int64"],
+        "이용건수_신용_R6M": [True, "int64"],
+        "이용건수_신판_R6M": [True, "int64"],
+        "이용건수_일시불_R6M": [True, "int64"],
+        "이용건수_할부_R6M": [True, "int64"],
+        "이용건수_할부_유이자_R6M": [True, "int64"],
+        "이용건수_할부_무이자_R6M": [True, "int64"],
+        "이용건수_CA_R6M": [True, "int64"],
+        "이용건수_체크_R6M": [True, "int64"],
+        "이용건수_카드론_R6M": [True, "int64"],  # highly imbalanced : 99.9%
+        "이용금액_일시불_R6M": [True, "int64"],
+        "이용금액_할부_R6M": [True, "int64"],
+        "이용금액_할부_유이자_R6M": [True, "int64"],
+        "이용금액_할부_무이자_R6M": [True, "int64"],
+        "이용금액_CA_R6M": [True, "int64"],
+        "이용금액_체크_R6M": [True, "int64"],
+        "이용금액_카드론_R6M": [True, "int64"],  # highly imbalanced : 99.9%
+        "이용개월수_신용_R6M": [True, "int64"],
+        "이용개월수_신판_R6M": [True, "int64"],
+        "이용개월수_일시불_R6M": [True, "int64"],
+        "이용개월수_할부_R6M": [True, "int64"],
+        "이용개월수_할부_유이자_R6M": [True, "int64"],
+        "이용개월수_할부_무이자_R6M": [True, "int64"],
+        "이용개월수_부분무이자_R6M": [True, "int64"],  # highly imbalanced : 99.9%
+        "이용개월수_CA_R6M": [True, "int64"],
+        "이용개월수_체크_R6M": [True, "int64"],
+        "이용개월수_카드론_R6M": [True, "int64"],  # highly imbalanced : 99.8%
+        "이용건수_신용_R3M": [True, "int64"],
+        #######################################
+        "이용건수_신판_R3M": [True, "int64"],
+        "이용건수_일시불_R3M": [True, "int64"],
+        "이용건수_할부_R3M": [True, "int64"],
+        "이용건수_할부_유이자_R3M": [True, "int64"],
+        "이용건수_할부_무이자_R3M": [True, "int64"],
+        "이용건수_CA_R3M": [True, "int64"],
+        "이용건수_체크_R3M": [True, "int64"],
+        "이용건수_카드론_R3M": [True, "int64"],  # highly imbalanced : 99.9%
+        "이용금액_일시불_R3M": [True, "int64"],
+        "이용금액_할부_R3M": [True, "int64"],
+        "이용금액_할부_유이자_R3M": [True, "int64"],
+        "이용금액_할부_무이자_R3M": [True, "int64"],
+        "이용금액_CA_R3M": [True, "int64"],
+        "이용금액_체크_R3M": [True, "int64"],
+        "이용금액_카드론_R3M": [True, "int64"],  # highly imbalanced : 99.9%
+        "이용개월수_신용_R3M": [True, "int64"],
+        "이용개월수_신판_R3M": [True, "int64"],
+        "이용개월수_일시불_R3M": [True, "int64"],
+        "이용개월수_할부_R3M": [True, "int64"],
+        "이용개월수_할부_유이자_R3M": [True, "int64"],
+        "이용개월수_할부_무이자_R3M": [True, "int64"],
+        "이용개월수_CA_R3M": [True, "int64"],
+        "이용개월수_체크_R3M": [True, "int64"],
+        "이용개월수_카드론_R3M": [True, "int64"],  # highly imbalanced : 99.9%
+        "이용가맹점수": [True, "int64"],
+        "이용금액_해외": [True, "int64"],
+        "쇼핑_도소매_이용금액": [True, "int64"],
+        "쇼핑_백화점_이용금액": [True, "int64"],
+        "쇼핑_마트_이용금액": [True, "int64"],
+        "쇼핑_슈퍼마켓_이용금액": [True, "int64"],
+        "쇼핑_편의점_이용금액": [True, "int64"],
+        "쇼핑_아울렛_이용금액": [True, "int64"],
+        "쇼핑_온라인_이용금액": [True, "int64"],
+        "쇼핑_기타_이용금액": [True, "int64"],
+        "교통_주유이용금액": [True, "int64"],
+        "교통_정비이용금액": [True, "int64"],
+        "교통_통행료이용금액": [True, "int64"],  # highly imbalanced : 99.9%
+        "교통_버스지하철이용금액": [True, "int64"],
+        "교통_택시이용금액": [True, "int64"],
+        "교통_철도버스이용금액": [True, "int64"],
+        "여유_운동이용금액": [True, "int64"],
+        "여유_Pet이용금액": [True, "int64"],  # highly imbalanced : 99.9%
+        "여유_공연이용금액": [True, "int64"],
+        "여유_공원이용금액": [True, "int64"],  # highly imbalanced : 99.9%
+        "여유_숙박이용금액": [True, "int64"],  # highly imbalanced : 99.9%
+        "여유_항공이용금액": [True, "int64"],  # highly imbalanced : 99.9%
+        "여유_기타이용금액": [True, "int64"],  # highly imbalanced : 98.9%
+        #######################################
+        "납부_통신비이용금액": [True, "int64"],
+        "납부_관리비이용금액": [True, "int64"],
+        "납부_가스전기료이용금액": [True, "int64"],
+        "납부_보험료이용금액": [True, "int64"],
+        "납부_기타이용금액": [True, "int64"],
+        "_1순위업종": [True, "object"],  # missing 있음 이용안함으로 처리
+        "_1순위업종_이용금액": [True, "int64"],
+        "_2순위업종": [True, "object"],  # missing 있음 이용안함으로 처리
+        "_2순위업종_이용금액": [True, "int64"],
+        "_3순위업종": [True, "object"],  # missing 있음 이용안함으로 처리
+        "_3순위업종_이용금액": [True, "int64"],
+        "_1순위쇼핑업종": [True, "object"],  # missing 있음 이용안함으로 처리
+        "_1순위쇼핑업종_이용금액": [True, "int64"],
+        "_2순위쇼핑업종": [True, "object"],  # missing 있음 이용안함으로 처리
+        "_2순위쇼핑업종_이용금액": [True, "int64"],
+        "_3순위쇼핑업종": [True, "object"],  # missing 있음 이용안함으로 처리
+        "_3순위쇼핑업종_이용금액": [True, "int64"],
+        "_1순위교통업종": [True, "object"],  # missing 있음 이용안함으로 처리
+        "_1순위교통업종_이용금액": [True, "int64"],
+        "_2순위교통업종": [True, "object"],  # missing 있음 이용안함으로 처리
+        "_2순위교통업종_이용금액": [True, "int64"],
+        "_3순위교통업종": [True, "object"],  # missing 있음 이용안함으로 처리
+        "_3순위교통업종_이용금액": [True, "int64"],
+        "_1순위여유업종": [True, "object"],  # missing 있음 이용안함으로 처리
+        "_1순위여유업종_이용금액": [True, "int64"],
+        "_2순위여유업종": [True, "object"],  # missing 있음 이용안함으로 처리
+        "_2순위여유업종_이용금액": [True, "int64"],
+        "_3순위여유업종": [
+            True,
+            "object",
+        ],  # missing 있음 이용안함으로 처리, highly imbalanced : 99.7%
+        "_3순위여유업종_이용금액": [True, "int64"],
+        "_1순위납부업종": [True, "object"],  # missing 있음 이용안함으로 처리
+        "_1순위납부업종_이용금액": [True, "int64"],
+        "_2순위납부업종": [True, "object"],  # missing 있음 이용안함으로 처리
+        "_2순위납부업종_이용금액": [True, "int64"],
+        "_3순위납부업종": [True, "object"],  # missing 있음 이용안함으로 처리
+        "_3순위납부업종_이용금액": [True, "int64"],
+        "할부건수_3M_R12M": [True, "int64"],
+        "할부건수_6M_R12M": [True, "int64"],
+        "할부건수_12M_R12M": [True, "int64"],  # highly imbalanced : 99.3%
+        "할부건수_14M_R12M": [True, "int64"],  # highly imbalanced : 99.9%
+        "할부금액_3M_R12M": [True, "int64"],
+        "할부금액_6M_R12M": [True, "int64"],
+        "할부금액_12M_R12M": [True, "int64"],
+        "할부금액_14M_R12M": [True, "int64"],
+        "할부건수_유이자_3M_R12M": [True, "int64"],
+        "할부건수_유이자_6M_R12M": [True, "int64"],
+        "할부건수_유이자_12M_R12M": [True, "int64"],  # highly imbalanced : 99.5%
+        "할부건수_유이자_14M_R12M": [True, "int64"],  # highly imbalanced : 99.9%
+        "할부금액_유이자_3M_R12M": [True, "int64"],
+        "할부금액_유이자_6M_R12M": [True, "int64"],
+        "할부금액_유이자_12M_R12M": [True, "int64"],  # highly imbalanced : 98.2%
+        #######################################
+        "할부금액_유이자_14M_R12M": [True, "int64"],
+        "할부건수_무이자_3M_R12M": [True, "int64"],
+        "할부건수_무이자_6M_R12M": [True, "int64"],
+        "할부건수_무이자_12M_R12M": [True, "int64"],  # highly imbalanced : 99.7%
+        "할부금액_무이자_3M_R12M": [True, "int64"],
+        "할부금액_무이자_6M_R12M": [True, "int64"],
+        "할부금액_무이자_12M_R12M": [True, "int64"],
+        "할부금액_무이자_14M_R12M": [True, "int64"],  # highly imbalanced : 99.9%
+        "할부건수_부분_12M_R12M": [True, "int64"],  # highly imbalanced : 99.9%
+        "할부금액_부분_12M_R12M": [True, "int64"],
+        "할부금액_부분_14M_R12M": [True, "int64"],  # highly imbalanced : 99.9%
+        "RP건수_B0M": [True, "int64"],
+        "RP금액_B0M": [True, "int64"],
+        "RP유형건수_B0M": [True, "int64"],
+        "RP건수_통신_B0M": [True, "int64"],
+        "RP건수_아파트_B0M": [True, "int64"],
+        "RP건수_제휴사서비스직접판매_B0M": [True, "int64"],
+        "RP건수_렌탈_B0M": [True, "int64"],  # highly imbalanced : 99.8%
+        "RP건수_가스_B0M": [True, "int64"],  # highly imbalanced : 99.2%
+        "RP건수_전기_B0M": [True, "int64"],  # highly imbalanced : 99.8%
+        "RP건수_보험_B0M": [True, "int64"],  # highly imbalanced : 99.4%
+        "RP건수_학습비_B0M": [True, "int64"],  # highly imbalanced : 99.9%
+        "RP건수_교통_B0M": [True, "int64"],
+        "RP후경과월": [True, "int64"],
+        "RP후경과월_통신": [True, "int64"],
+        "RP후경과월_아파트": [True, "int64"],
+        "RP후경과월_제휴사서비스직접판매": [True, "int64"],
+        "RP후경과월_렌탈": [True, "int64"],  # highly imbalanced : 99.2%
+        "RP후경과월_가스": [True, "int64"],  # highly imbalanced : 98.9%
+        "RP후경과월_전기": [True, "int64"],  # highly imbalanced : 99.4%
+        "RP후경과월_보험": [True, "int64"],  # highly imbalanced : 98.6%
+        "RP후경과월_학습비": [True, "int64"],  # highly imbalanced : 99.8%
+        "RP후경과월_교통": [True, "int64"],
+        "증감_RP건수_전월": [True, "int64"],
+        "증감_RP유형건수_전월": [True, "int64"],  # highly imbalanced : 99.8%
+        "증감_RP건수_통신_전월": [True, "int64"],  # highly imbalanced : 98.9%
+        "증감_RP건수_아파트_전월": [True, "int64"],  # highly imbalanced : 99.9%
+        "증감_RP건수_제휴사서비스직접판매_전월": [
+            True,
+            "int64",
+        ],  # highly imbalanced : 99.9%
+        "증감_RP건수_렌탈_전월": [True, "int64"],  # highly imbalanced : 99.8%
+        "증감_RP건수_가스_전월": [True, "int64"],  # highly imbalanced : 99.7%
+        "증감_RP건수_전기_전월": [True, "int64"],  # highly imbalanced : 99.8%
+        "증감_RP건수_보험_전월": [True, "int64"],  # highly imbalanced : 99.6%
+        "증감_RP건수_학습비_전월": [True, "int64"],  # highly imbalanced : 99.9%
+        "증감_RP건수_교통_전월": [True, "int64"],
+        "최초카드론이용경과월": [True, "int64"],
+        "최종카드론이용경과월": [True, "int64"],
+        "카드론이용건수_누적": [True, "int64"],
+        "카드론이용월수_누적": [True, "int64"],
+        #######################################
+        "카드론이용금액_누적": [True, "int64"],
+        "최종카드론_금융상환방식코드": [True, "object"],  # missing category화
+        "최종카드론_신청경로코드": [True, "object"],  # missing category화
+        "최종카드론_대출이율": [True, "int64"],
+        "최종카드론_대출일자": [True, "YMD"],  # missing 많음
+        "최종카드론_대출월수": [True, "int64"],
+        "최종카드론_거치개월수": [True, "int64"],
+        "최종카드론_대출금액": [True, "int64"],
+        "이용개월수_온라인_R6M": [True, "int64"],
+        "이용개월수_오프라인_R6M": [True, "int64"],
+        "이용금액_온라인_R6M": [True, "int64"],
+        "이용금액_오프라인_R6M": [True, "int64"],
+        "이용건수_온라인_R6M": [True, "int64"],
+        "이용건수_오프라인_R6M": [True, "int64"],
+        "이용금액_온라인_R3M": [True, "int64"],
+        "이용금액_오프라인_R3M": [True, "int64"],
+        "이용건수_온라인_R3M": [True, "int64"],
+        "이용건수_오프라인_R3M": [True, "int64"],
+        "이용금액_온라인_B0M": [True, "int64"],
+        "이용금액_오프라인_B0M": [True, "int64"],
+        "이용건수_온라인_B0M": [True, "int64"],
+        "이용건수_오프라인_B0M": [True, "int64"],
+        "이용개월수_페이_온라인_R6M": [True, "int64"],
+        "이용개월수_페이_오프라인_R6M": [True, "int64"],
+        "이용금액_페이_온라인_R6M": [True, "int64"],
+        "이용금액_페이_오프라인_R6M": [True, "int64"],
+        "이용건수_페이_온라인_R6M": [True, "int64"],
+        "이용건수_페이_오프라인_R6M": [True, "int64"],
+        "이용금액_페이_온라인_R3M": [True, "int64"],
+        "이용금액_페이_오프라인_R3M": [True, "int64"],
+        "이용건수_페이_온라인_R3M": [True, "int64"],
+        "이용건수_페이_오프라인_R3M": [True, "int64"],
+        "이용금액_페이_온라인_B0M": [True, "int64"],
+        "이용금액_페이_오프라인_B0M": [True, "int64"],
+        "이용건수_페이_온라인_B0M": [True, "int64"],
+        "이용건수_페이_오프라인_B0M": [True, "int64"],
+        "이용개월수_간편결제_R6M": [True, "int64"],
+        "이용개월수_A페이_R6M": [True, "int64"],
+        "이용개월수_B페이_R6M": [True, "int64"],
+        "이용개월수_C페이_R6M": [True, "int64"],
+        "이용개월수_D페이_R6M": [True, "int64"],  # highly imbalanced : 99.1%
+        "이용금액_간편결제_R6M": [True, "int64"],
+        "이용금액_A페이_R6M": [True, "int64"],
+        "이용금액_B페이_R6M": [True, "int64"],
+        "이용금액_C페이_R6M": [True, "int64"],
+        "이용금액_D페이_R6M": [True, "int64"],  # highly imbalanced : 99.1%
+        "이용건수_간편결제_R6M": [True, "int64"],
+        "이용건수_A페이_R6M": [True, "int64"],
+        "이용건수_B페이_R6M": [True, "int64"],
+        #######################################
+        "이용건수_C페이_R6M": [True, "int64"],
+        "이용건수_D페이_R6M": [True, "int64"],  # highly imbalanced : 99.1%
+        "이용금액_간편결제_R3M": [True, "int64"],
+        "이용금액_A페이_R3M": [True, "int64"],
+        "이용금액_B페이_R3M": [True, "int64"],
+        "이용금액_C페이_R3M": [True, "int64"],
+        "이용금액_D페이_R3M": [True, "int64"],  # highly imbalanced : 99.5%
+        "이용건수_간편결제_R3M": [True, "int64"],
+        "이용건수_A페이_R3M": [True, "int64"],
+        "이용건수_B페이_R3M": [True, "int64"],
+        "이용건수_C페이_R3M": [True, "int64"],
+        "이용건수_D페이_R3M": [True, "int64"],  # highly imbalanced : 99.6%
+        "이용금액_간편결제_B0M": [True, "int64"],
+        "이용금액_A페이_B0M": [True, "int64"],
+        "이용금액_B페이_B0M": [True, "int64"],  # highly imbalanced : 98.3%
+        "이용금액_C페이_B0M": [True, "int64"],
+        "이용금액_D페이_B0M": [True, "int64"],  # highly imbalanced : 99.7%
+        "이용건수_간편결제_B0M": [True, "int64"],
+        "이용건수_A페이_B0M": [True, "int64"],
+        "이용건수_B페이_B0M": [True, "int64"],  # highly imbalanced : 98.3%
+        "이용건수_C페이_B0M": [True, "int64"],
+        "이용건수_D페이_B0M": [True, "int64"],  # highly imbalanced : 99.8%
+        "이용개월수_선결제_R6M": [True, "int64"],
+        "이용횟수_선결제_R6M": [True, "int64"],
+        "이용금액_선결제_R6M": [True, "int64"],
+        "이용건수_선결제_R6M": [True, "int64"],
+        "이용횟수_선결제_R3M": [True, "int64"],
+        "이용금액_선결제_R3M": [True, "int64"],
+        "이용건수_선결제_R3M": [True, "int64"],  # highly imbalanced : 98.0%
+        "이용횟수_선결제_B0M": [True, "int64"],
+        "이용금액_선결제_B0M": [True, "int64"],
+        "이용건수_선결제_B0M": [True, "int64"],  # highly imbalanced : 98.3%
+        "이용횟수_연체_R6M": [True, "int64"],
+        "이용금액_연체_R6M": [True, "int64"],
+        "이용횟수_연체_R3M": [True, "int64"],
+        "이용금액_연체_R3M": [True, "int64"],
+        "이용횟수_연체_B0M": [True, "int64"],  # highly imbalanced : 98.3%
+        "이용금액_연체_B0M": [True, "int64"],
+        "이용개월수_전체_R6M": [True, "int64"],
+        "이용개월수_전체_R3M": [True, "int64"],
+        "이용개월수_결제일_R6M": [True, "int64"],
+        "이용개월수_결제일_R3M": [True, "int64"],
+        "가맹점매출금액_B1M": [True, "int64"],
+        "가맹점매출금액_B2M": [True, "int64"],
+        "정상청구원금_B0M": [True, "int64"],
+        "선입금원금_B0M": [True, "int64"],
+        "정상입금원금_B0M": [True, "int64"],
+        "연체입금원금_B0M": [True, "int64"],
+        "정상청구원금_B2M": [True, "int64"],
+        "선입금원금_B2M": [True, "int64"],
+        #######################################
+        "정상입금원금_B2M": [True, "int64"],
+        "연체입금원금_B2M": [True, "int64"],
+        "정상청구원금_B5M": [True, "int64"],
+        "선입금원금_B5M": [True, "int64"],
+        "정상입금원금_B5M": [True, "int64"],
+        "연체입금원금_B5M": [True, "int64"],
+        "건수_할부전환_R6M": [True, "int64"],  # highly imbalanced : 98.5%
+        "건수_할부전환_R3M": [True, "int64"],  # highly imbalanced : 98.5%
+        "금액_할부전환_R6M": [True, "int64"],  # highly imbalanced : 98.5%
+        "금액_할부전환_R3M": [True, "int64"],  # highly imbalanced : 98.5%
+        "연속무실적개월수_기본_24M_카드": [True, "int64"],
+        "연속유실적개월수_기본_24M_카드": [True, "int64"],
+        "신청건수_ATM_CA_B0": [True, "int64"],  # highly imbalanced : 98.5%
+        "신청건수_ATM_CA_R6M": [True, "int64"],
+        "신청건수_ATM_CL_R6M": [True, "int64"],  # highly imbalanced : 99.9%
+        "승인거절건수_B0M": [True, "int64"],  # highly imbalanced : 99.9%
+        "승인거절건수_한도초과_B0M": [True, "int64"],  # highly imbalanced : 99.9%
+        "승인거절건수_BL_B0M": [True, "int64"],  # highly imbalanced : 99.9%
+        "승인거절건수_R3M": [True, "int64"],  # highly imbalanced : 99.8%
+        "승인거절건수_한도초과_R3M": [True, "int64"],  # highly imbalanced : 99.8%
+        "승인거절건수_BL_R3M": [True, "int64"],  # highly imbalanced : 99.8%
+        "이용금액대": [True, "object"],
+        "Segment": [True, "object"],
+    }
+
+
+class Configuration:
+
+    CATEGORIES = [
+        "balance",
+        "billing",
+        "channel",
+        "credit",
+        "customer",
+        "marketing",
+        "performance",
+        "sales",
+    ]
+
+    SPLITS = ["train", "test"]
+
+    DATA_CATEGORIES = {
+        "회원정보": {
+            "folder": "1.회원정보",
+            "name": "회원정보",
+            "var_prefix": "customer",
+        },
+        "신용정보": {
+            "folder": "2.신용정보",
+            "name": "신용정보",
+            "var_prefix": "credit",
+        },
+        "승인매출정보": {
+            "folder": "3.승인매출정보",
+            "name": "승인매출정보",
+            "var_prefix": "sales",
+        },
+        "청구정보": {
+            "folder": "4.청구입금정보",
+            "name": "청구정보",
+            "var_prefix": "billing",
+        },
+        "잔액정보": {
+            "folder": "5.잔액정보",
+            "name": "잔액정보",
+            "var_prefix": "balance",
+        },
+        "채널정보": {
+            "folder": "6.채널정보",
+            "name": "채널정보",
+            "var_prefix": "channel",
+        },
+        "마케팅정보": {
+            "folder": "7.마케팅정보",
+            "name": "마케팅정보",
+            "var_prefix": "marketing",
+        },
+        "성과정보": {
+            "folder": "8.성과정보",
+            "name": "성과정보",
+            "var_prefix": "performance",
+        },
+    }
+
+    MONTHS = ["07", "08", "09", "10", "11", "12"]
+
+    DTYPES = {
+        "customer": DtypesSchema.CUSTOMER_SCHEMA,
+        "credit": DtypesSchema.CREDIT_SCHEMA,
+        "sales": DtypesSchema.SALES_SCHEMA,
+        "billing": DtypesSchema.BILLING_SCHEMA,
+        "marketing": DtypesSchema.MARKETING_SCHEMA,
+        "performance": DtypesSchema.PERFORMANCE_SCHEMA,
+        "channel": DtypesSchema.CHANNEL_SCHEMA,
+        "balance": DtypesSchema.BALANCE_SCHEMA,
+    }
+
+    # train, test에서 모두 제거
+    CONSTANT_FEATURES = {
+        "sales": [
+            "이용건수_부분무이자_B0M",
+            "이용금액_부분무이자_B0M",
+            "여유_여행이용금액",
+            "납부_렌탈료이용금액",
+            "납부_유선방송이용금액",
+            "납부_건강연금이용금액",
+            "할부건수_부분_3M_R12M",
+            "할부건수_부분_6M_R12M",
+            "할부건수_부분_14M_R12M",
+            "할부금액_부분_3M_R12M",
+            "RP건수_유선방송_B0M",
+            "RP건수_건강_B0M",
+            "RP후경과월_유선방송",
+            "RP후경과월_건강",
+            "증감_RP건수_유선방송_전월",
+            "증감_RP건수_건강_전월",
+            "이용건수_부분무이자_R6M",  # 추가
+            "이용금액_부분무이자_R6M",  # 추가
+            "이용건수_부분무이자_R3M",  # 추가
+            "이용금액_부분무이자_R3M",  # 추가
+            "이용개월수_부분무이자_R3M",  # 추가
+            "할부건수_무이자_14M_R12M",  # 추가
+            "할부금액_부분_6M_R12M",  # 추가
+            "이용개월수_당사기타_R6M",  # 추가
+            "신청건수_ATM_CL_B0",  # 추가
+            "승인거절건수_입력오류_R3M",  # 추가
+            "승인거절건수_기타_R3M",  # 추가
+            "이용개월수_당사페이_R6M",
+            "이용금액_당사페이_R6M",
+            "이용금액_당사기타_R6M",
+            "이용건수_당사페이_R6M",
+            "이용건수_당사기타_R6M",
+            "이용금액_당사페이_R3M",
+            "이용금액_당사기타_R3M",
+            "이용건수_당사페이_R3M",
+            "이용건수_당사기타_R3M",
+            "이용금액_당사페이_B0M",
+            "이용금액_당사기타_B0M",
+            "이용건수_당사페이_B0M",
+            "이용건수_당사기타_B0M",
+            "승인거절건수_입력오류_B0M",
+            "승인거절건수_기타_B0M",
+        ],
+        "balance": [
+            "카드론잔액_최종경과월",
+            "연체잔액_카드론_B0M",
+            "연체잔액_대환론_B0M",
+            "매각잔액_B1M",
+            "최종연체개월수_R15M",
+            "RV잔액이월횟수_R6M",
+            "RV잔액이월횟수_R3M",
+            "연체잔액_일시불_해외_B0M",
+            "연체잔액_RV일시불_B0M",
+            "연체잔액_RV일시불_해외_B0M",
+            "연체잔액_할부_해외_B0M",
+            "연체잔액_CA_해외_B0M",
+        ],
+        "channel": [
+            "인입횟수_금융_IB_R6M",
+            "인입불만횟수_IB_R6M",
+            "인입불만일수_IB_R6M",
+            "인입불만월수_IB_R6M",
+            "인입불만후경과월_IB_R6M",
+            "인입불만횟수_IB_B0M",
+            "인입불만일수_IB_B0M",
+            "IB문의건수_사용승인내역_B0M",
+            "IB문의건수_한도_B0M",
+            "IB문의건수_결제_B0M",
+            "IB문의건수_할부_B0M",
+            "IB문의건수_정보변경_B0M",
+            "IB문의건수_결제일변경_B0M",
+            "IB문의건수_명세서_B0M",
+            "IB문의건수_비밀번호_B0M",
+            "IB문의건수_SMS_B0M",
+            "IB문의건수_APP_B0M",
+            "IB문의건수_부대서비스_B0M",
+            "IB문의건수_포인트_B0M",
+            "IB문의건수_카드발급_B0M",
+            "IB문의건수_BL_B0M",
+            "IB문의건수_분실도난_B0M",
+            "IB문의건수_CA_B0M",
+            "IB문의건수_CS_B0M",
+            "IB상담건수_VOC_B0M",
+            "IB상담건수_VOC민원_B0M",
+            "IB상담건수_VOC불만_B0M",
+            "IB상담건수_금감원_B0M",
+            "IB문의건수_한도_R6M",
+            "IB문의건수_결제_R6M",
+            "IB문의건수_할부_R6M",
+            "IB문의건수_정보변경_R6M",
+            "IB문의건수_결제일변경_R6M",
+            "IB문의건수_명세서_R6M",
+            "IB문의건수_비밀번호_R6M",
+            "IB문의건수_SMS_R6M",
+            "IB문의건수_APP_R6M",
+            "IB문의건수_부대서비스_R6M",
+            "IB문의건수_포인트_R6M",
+            "IB문의건수_BL_R6M",
+            "IB문의건수_분실도난_R6M",
+            "IB문의건수_CA_R6M",
+            "IB상담건수_VOC_R6M",
+            "IB상담건수_VOC민원_R6M",
+            "IB상담건수_VOC불만_R6M",
+            "IB상담건수_금감원_R6M",
+            "불만제기건수_B0M",
+            "불만제기건수_R12M",
+            "당사PAY_방문횟수_B0M",
+            "당사PAY_방문횟수_R6M",
+            "당사PAY_방문월수_R6M",
+        ],
+        "billing": ["대표결제방법코드"],
+        "credit": [
+            "특별한도보유여부_R3M",
+            "한도심사요청건수",
+            "한도요청거절건수",
+            "한도심사요청후경과월",
+            "한도심사거절후경과월",
+            "시장단기연체여부_R3M",
+            "시장연체상환여부_R6M",
+            "시장연체상환여부_R3M",
+        ],
+        "marketing": [
+            "컨택건수_CA_TM_B0M",
+            "컨택건수_부대서비스_TM_B0M",
+            "컨택건수_포인트소진_TM_B0M",
+            "컨택건수_CA_EM_B0M",
+            "컨택건수_리볼빙_EM_B0M",
+            "컨택건수_카드론_청구서_B0M",
+            "컨택건수_리볼빙_청구서_B0M",
+            "컨택건수_카드론_인터넷_B0M",
+            "컨택건수_CA_인터넷_B0M",
+            "컨택건수_리볼빙_인터넷_B0M",
+            "컨택건수_카드론_당사앱_B0M",
+            "컨택건수_CA_당사앱_B0M",
+            "컨택건수_리볼빙_당사앱_B0M",
+            "컨택건수_CA_TM_R6M",
+            "컨택건수_포인트소진_TM_R6M",
+            "컨택건수_CA_EM_R6M",
+            "컨택건수_리볼빙_EM_R6M",
+            "컨택건수_리볼빙_청구서_R6M",
+            "컨택건수_카드론_인터넷_R6M",
+            "컨택건수_CA_인터넷_R6M",
+            "컨택건수_리볼빙_인터넷_R6M",
+            "컨택건수_카드론_당사앱_R6M",
+            "컨택건수_CA_당사앱_R6M",
+            "컨택건수_리볼빙_당사앱_R6M",
+            "컨택건수_FDS_B0M",
+            "컨택건수_FDS_R6M",
+        ],
+        "performance": [],
+        "customer": [
+            "이용카드수_체크_가족",
+            "이용금액_R3M_체크_가족",
+            "연회비할인카드수_B0M",
+            "할인금액_기본연회비_B0M",
+            "할인금액_제휴연회비_B0M",
+            "상품관련면제카드수_B0M",
+            "임직원면제카드수_B0M",
+            "우수회원면제카드수_B0M",
+            "기타면제카드수_B0M",
+        ],
+    }
