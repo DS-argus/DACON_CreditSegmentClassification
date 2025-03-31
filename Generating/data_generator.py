@@ -125,7 +125,6 @@ def merge_segment_feature():
                 by=["ID", "기준년월"], inplace=True, ignore_index=True
             )
             customer_train.to_parquet(f"{ROOT_DIR}/data/train/customer_train.parquet")
-            print(customer_train[["ID", "기준년월"]].head())
 
         else:
             train_df = pd.read_parquet(
@@ -135,12 +134,6 @@ def merge_segment_feature():
                 by=["ID", "기준년월"], ignore_index=True
             )
             train_df.to_parquet(f"{ROOT_DIR}/data/train/{category}_train.parquet")
-
-            print(train_df[["ID", "기준년월"]].head())
-
-            # print(f"Successfully merged Segments into {category} dataset")
-            # print(f"Shape of {category} dataset: {train_df.shape}")
-            # print()
 
 
 def merge_categories():
@@ -161,7 +154,6 @@ def merge_categories():
     # # 2. Train concat and remove duplicates
     train_concat = pd.concat(train_dfs, axis=1)
     train_concat = train_concat.drop_duplicates().reset_index(drop=True)
-    print(calculate_memory_MB(train_concat))
     train_concat.to_parquet(f"{ROOT_DIR}/data/train/merge_train.parquet")
 
     # memory remove
@@ -183,22 +175,18 @@ def merge_categories():
     # 2. Test concat and remove duplicates
     test_concat = pd.concat(test_dfs, axis=1)
     test_concat = test_concat.drop_duplicates().reset_index(drop=True)
-    print(calculate_memory_MB(test_concat))
     test_concat.to_parquet(f"{ROOT_DIR}/data/test/merge_test.parquet")
 
 
 if __name__ == "__main__":
     # # # 6개월치 모든 데이터 사용 & constant feature 제외
-    # merge_and_save_monthly_data()
+    merge_and_save_monthly_data()
 
     # # # Segment feature 결합
-    # merge_segment_feature()
+    merge_segment_feature()
 
     # # # train, test 데이터에서 dtype 변환
-    # convert_dtypes()
+    convert_dtypes()
 
     # ID 기준, train, test 데이터 각각 결합
     merge_categories()
-    # train, test = merge_categories()
-    # print(train.info())
-    # print(test.info())
