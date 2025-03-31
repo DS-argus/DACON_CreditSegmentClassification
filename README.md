@@ -1,3 +1,8 @@
+## Installation
+```bash
+conda env create -f environment.yml
+```
+
 ## 데이터 전처리
 
 `rawdata/` 디렉토리에 있는 원시 데이터를 가공하여 `data/train/` 및 `data/test/` 디렉토리에 학습에 적합한 형태로 저장
